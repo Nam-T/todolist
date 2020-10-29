@@ -56,12 +56,33 @@ class Section extends React.Component {
   }
 
   render() {
+    const list_item = this.list.map((item) =>
+      <ListItem value = {item}/>
+    )
     return (
       <div className="section">
         <h2>{this.title}</h2>
+        <ul>
+          {list_item}
+        </ul>
       </div>
     );
   }
+}
+
+function ListItem(props) {
+  const value = props.value;
+  return (
+    // Wrong! There is no need to specify the key here:
+    <li key={value.toString()}>
+      <div>{value}</div>
+      <button>
+        <div className="checkbox-circle">
+          
+        </div>
+      </button>
+    </li>
+  );
 }
 
 export default Content;
